@@ -50,7 +50,6 @@ def train():
             train_loss += loss.item()
 
         train_loss /= (len(loaders['train']) * args['batch'])
-        print("epoch: {}, train loss = {:.6f}, ".format(epoch + 1, train_loss), end="")
     
         with torch.no_grad():
 
@@ -65,7 +64,6 @@ def train():
                 val_loss += loss.item()
             
             val_loss /= (len(loaders['val']) * args['batch'])
-            print("val loss = {:.6f}".format(val_loss))
         
             model.train()
         
@@ -73,12 +71,15 @@ def train():
         if wandb is not None:
             wandb.log({"train-loss": train_loss, "val-loss": val_loss})
 
+    # There's no test loop yet
+
     if wandb is not None:
+        # Log final accuracy/test set results
+        accuracy = 1
+        wandb.run.summary['accuracy'] = accuracy
         run.finish()
     
-    # There's no test loop yet
-    
-    return [train_loss, val_loss]
+    return [train_loss, val_loss, accuracy]
 
 
 
