@@ -1,0 +1,7 @@
+wandb/
+env/
+**/__pycache__/
+**/proj_name/__pycache__/
+**/experiments/__pycache__/
+.vscode/
+trained_models/

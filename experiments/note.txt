@@ -1,0 +1,4 @@
+While there is a main method, in this folder you can have notebooks or python scripts 
+that test stuff out that you might come back to sometime but don't want to mess around 
+with the main loop to try out. I found this helpful, keeps all my messy experiments 
+contained and doesn't take over my main code.
